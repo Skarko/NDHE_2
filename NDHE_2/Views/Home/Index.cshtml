@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Naturally Devine Hair Extensions</h1>
+    <p class="lead">Naturally Devine Hair Extensions is a mobile hair extensions service direct to your door or come visit our studio to have them fitted</p>
+    <p><a href="https://www.kinghairandbeauty.com/" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Products and Services</h2>
+        <p>
+            High quality hair extensions to suit variant budgets.  Colour matching pre-hair order.  Styling advice and after care maintenance.
+        </p>
+        <p><a class="btn btn-default" href="https://www.kinghairandbeauty.com/">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Qualified hair extensions practioner</h2>
+        <p>Fully trained and accredited by Sam King Hair Studios</p>
+        <p><a class="btn btn-default" href="https://www.kinghairandbeauty.com/">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Gallery</h2>
+        <p>View sample work and prices information.</p>
+        <p><a class="btn btn-default" href="https://www.kinghairandbeauty.com/">Learn more &raquo;</a></p>
+    </div> 
+
+    <!-- #region Sample Accordian -->
+    <div> <div class="accordion">
+        <div class="accordion-section">
+            <a class="accordion-section-title" href="#accordion-1">Accordion Section #1</a>
+            <div id="accordion-1" class="accordion-section-content">
+                <p>Mauris interdum fringilla augue vitae tincidunt. Curabitur vitae tortor id eros euismod ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent nulla mi, rutrum ut feugiat at, vestibulum ut neque? Cras tincidunt enim vel aliquet facilisis. Duis congue ullamcorper vehicula. Proin nunc lacus, semper sit amet elit sit amet, aliquet pulvinar erat. Nunc pretium quis sapien eu rhoncus. Suspendisse ornare gravida mi, et placerat tellus tempor vitae.</p>
+
+                <!-- #region JavaScript JSON for accordian -->
+                $(document).ready(function() {
+                function close_accordion_section() {
+                $('.accordion .accordion-section-title').removeClass('active');
+                $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
+                }
+
+                $('.accordion-section-title').click(function(e) {
+                // Grab current anchor value
+                var currentAttrValue = $(this).attr('href');
+
+                if($(e.target).is('.active')) {
+                close_accordion_section();
+                }else {
+                close_accordion_section();
+
+                // Add active class to section title
+                $(this).addClass('active');
+                // Open up the hidden content panel
+                $('.accordion ' + currentAttrValue).slideDown(300).addClass('open');
+                }
+
+                e.preventDefault();
+                });
+                });
+                <!-- #endregion -->
+
+            </div><!--end .accordion-section-content-->
+        </div><!--end .accordion-section-->
+    </div><!--end .accordion--></div>
+                  <!-- #endregion -->
+          
+    
+    @*show customer collection*@
+
+    @*@model IEnumerable<NDHE_2.Models.Customer>
+ 
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+ 
+    <h2>Index</h2>
+ 
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+ 
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
+                </td>
+            </tr>
+        }
+ 
+    </table>*@
+
+
+    
+
+</div>
